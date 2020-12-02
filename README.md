@@ -146,9 +146,9 @@ fcitx5
     安装后不要忘记添加 开机启动 调整字体大小 以及手动配置
 >kate ~/.pam_environment
 >INPUT_METHOD  DEFAULT=fcitx5
-GTK_IM_MODULE DEFAULT=fcitx5
-QT_IM_MODULE  DEFAULT=fcitx5
-XMODIFIERS    DEFAULT=\@im=fcitx5
+>GTK_IM_MODULE DEFAULT=fcitx5
+>QT_IM_MODULE  DEFAULT=fcitx5
+>XMODIFIERS    DEFAULT=\@im=fcitx5
 
 字体
 1. Ubuntu字体包
