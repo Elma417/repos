@@ -7,6 +7,21 @@ ___Cpu___ （考虑做成脚本）
 2. __关闭boost 省电__
 >#### # echo "0" > /sys/devices/system/cpu/cpufreq/boost
 
+___Fan___
+
+参考见URL    
+https://wiki.archlinux.org/index.php/fan_speed_control#NBFC   
+1. 通过Nbfc控制   
+    https://www.rockyourcode.com/fan-speed-control-on-manjaro-linux-with-nbfc/
+
+    安装
+   >yay -S nbfc
+    启用与配置
+    >sudo mv /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll.old   
+    >sudo systemctl enable nbfc --now    
+    >nbfc config -r   
+    >nbfc config --apply ""  
+
 ***
 ### __生产力__
 1.  Visual Studio Code
@@ -146,9 +161,9 @@ fcitx5
     安装后不要忘记添加 开机启动 调整字体大小 以及手动配置
 >kate ~/.pam_environment
 >INPUT_METHOD  DEFAULT=fcitx5
-GTK_IM_MODULE DEFAULT=fcitx5
-QT_IM_MODULE  DEFAULT=fcitx5
-XMODIFIERS    DEFAULT=\@im=fcitx5
+>GTK_IM_MODULE DEFAULT=fcitx5
+>QT_IM_MODULE  DEFAULT=fcitx5
+>XMODIFIERS    DEFAULT=\@im=fcitx5
 
 字体
 1. Ubuntu字体包
