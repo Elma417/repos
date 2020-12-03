@@ -115,6 +115,14 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
 
     在设置里修改Dark主题
     以及在设置->应用程序->文件关联->.html中 将Chrome置顶
+4. Proxychains-ng
+>yay -S proxychains-ng    
+
+修改[ProxyList]为 socks5  127.0.0.1:xxx
+>/etc/proxychains.conf
+
+终端调用则在前加proxychains
+
 ***
 待测试
 
