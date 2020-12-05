@@ -7,16 +7,19 @@ ___Cpu___ （考虑做成脚本）
 2. __关闭boost 省电__
 >#### # echo "0" > /sys/devices/system/cpu/cpufreq/boost
 
-___Fan___
-
+___Fan___   
+通过Nbfc控制 
 参考见URL    
 https://wiki.archlinux.org/index.php/fan_speed_control#NBFC   
-1. 通过Nbfc控制   
-    https://www.rockyourcode.com/fan-speed-control-on-manjaro-linux-with-nbfc/
+>nbfc status -a    确认风扇以及温度状态   
+>nbfc set -a   自动模式    
+>nbfc set -s  100 满载   
 
-    安装
+安装
    >yay -S nbfc
-    启用与配置
+
+启用与配置 
+
     >sudo mv /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll /opt/nbfc/Plugins/StagWare.Plugins.ECSysLinux.dll.old   
     >sudo systemctl enable nbfc --now    
     >nbfc config -r   
@@ -24,7 +27,41 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
 
 ***
 ### __生产力__
-1.  Visual Studio Code
+1.  Zsh  
+*  安装
+>sudo pacman -S zsh
+* 修改默认shell为zsh
+>chsh -s /usr/bin/zsh
+* 安装ohmyzsh（记得挂代理）
+>wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+* 安装插件
+  * 安装zsh-syntax-highlighting：提供命令高亮
+    >git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+  * 安装autosuggestions：记住你之前使用过的命令
+    >git clone git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+  * 安装incr：命令联想与自动补全
+    >git clone git://github.com/makeitjoe/incr.zsh $ZSH_CUSTOM/plugins/incr
+  * 安装thefuck：帮你更加高效地学习linux命令
+    >pip install --user thefuck
+* 启动所有插件
+    * nano ~/.zshrc  
+
+        修改 plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages sudo extract)   
+        在最后一行添加 source ~/.oh-my-zsh/plugins/incr/incr*.zsh
+
+    * 修改konsole的默认bash为zsh   
+    >source ~/.zshrc
+* 终端美化
+    * 安装powerlevel10k主题   
+    详细说明见https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+    >git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+    * 安装所需的字体并选用
+    * 启用主题
+    >nano ~/.zshrc   
+    改ZSH_THEME="powerlevel10k/powerlevel10k"  
+    重启zsh    
+    >p10k configure 进入配置界面 
+2.  Visual Studio Code
    >C/C++ Python MarkDown 
 
 * C/C++   
@@ -55,7 +92,7 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     >/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed
     >/usr/include
 
-    添加后检查c_cpp_properties.json
+    添加后检查c_cpp_properties.json   
     正常 则可以使用#include  
    
 * 插件推荐
@@ -73,10 +110,11 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
   * Brackets Pair Colorize 彩虹括号
   * One Dark Pro 主题
 
-1. IDEA
+3. IDEA
 >Java8 Tomcat Mysql 
 * 插件推荐
   * github
+
 ***
 ### 美化
 1. latte-dock
@@ -123,15 +161,22 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
 
 终端调用则在前加proxychains
 
+5. 网易云音乐
+
+商店中的网易云无法搜索栏无法输入中文
+
+解决方案如下
+>https://gitee.com/ForMat1/netease-cloud-music_For_Arch
+
+6. Libreoffice
+>yay -S libreoffice    
+
+选择still版本下载 在设置中下载后修改语言包和 以及图标
+
 ***
 待测试
 
-1. WPS
->sudo pacman -S wps-office-cn wps-office-mime-cn wps-office-mui-zh-cn ttf-wps-fonts
-
 3. Dingtalk
-4. 网易云音乐
-
 
 ****
 ### __安装后配置__
