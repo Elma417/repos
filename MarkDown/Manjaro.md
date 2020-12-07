@@ -43,7 +43,7 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     >git clone git://github.com/makeitjoe/incr.zsh $ZSH_CUSTOM/plugins/incr
   * 安装thefuck：帮你更加高效地学习linux命令
     >pip install --user thefuck
-* 启动所有插件
+  * 启动所有插件
     * nano ~/.zshrc  
 
         修改 plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages sudo extract)   
@@ -61,22 +61,29 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     改ZSH_THEME="powerlevel10k/powerlevel10k"  
     重启zsh    
     >p10k configure 进入配置界面 
+    * 安装neofetch
+    >pacman -S neofetch
+    * 安装parrotsay
+    >npm install --global parrotsay  
+    >~/.oh-my-zsh/custom 新建一个名为hello.zsh的文件  
+    >parrotsay "你想看到的内容"
+    记得调节你的p10k configure 为quite否则每次自启动都会报错
 2.  Visual Studio Code
-   >C/C++ Python MarkDown 
+   >C/C++ Python MarkDown   
+  * C/C++       
 
-* C/C++   
     1. 安装g++ gdb   
     >g++ --vision  
     >gdb --vision   
 
     只缺少gdb因此
     >sudo pacman -S gdb
-    2. 安装插件
+    1. 安装插件
     * C/C++
     * C++ Intellisense
   
-    3. 编写测试代码并点击生成launch.json和task.json 选择gdb g++ 运行则完成
-    4. 关于include问题
+    1. 编写测试代码并点击生成launch.json和task.json 选择gdb g++ 运行则完成
+    2. 关于include问题
     >\$gcc -v -E -x c++ -    
 
     检查#include路径并添加到C/C++ Configurations中
@@ -95,25 +102,24 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     添加后检查c_cpp_properties.json   
     正常 则可以使用#include  
    
-* 插件推荐
-  * GitHub Pull Requests and Issues
+  * 插件推荐
+    * GitHub Pull Requests and Issues
     //支持直接pull push
     
     应先安装gnome-keyring
     >sudo pacman -S gnome-keyring
 
-  * Python  
-  * Markdown ALL in One  //Markdown格式支持
-  * Markdown Preview Enhanced //Markdown预览
-  * Draw.io Integration  流程图
-  * chinese   中文
-  * Brackets Pair Colorize 彩虹括号
-  * One Dark Pro 主题
-
+    * Python  
+    * Markdown ALL in One  //Markdown格式支持
+    * Markdown Preview Enhanced //Markdown预览
+    * Draw.io Integration  流程图
+    * chinese   中文
+    * Brackets Pair Colorize 彩虹括号
+    * One Dark Pro 主题
 3. IDEA
 >Java8 Tomcat Mysql 
-* 插件推荐
-  * github
+   * 插件推荐
+     * github
 
 ***
 ### 美化
@@ -227,4 +233,6 @@ fcitx5
 base-devel软件包组
 >sudo pacman -S base-devel
 
+Nodejs num
+>sudo pacman -S nodejs npm
 ***
