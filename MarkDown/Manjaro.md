@@ -132,12 +132,18 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
   * Java8 
   采用adopt-openjdk-1.8.0_275 IDEA内下载
     * 配置环境路径
-    > kate .bashrc
+    > kate /etc/profile       
     最后加上以下行
-    >export JAVA_HOME=/home/null/.jdks/adopt-openjdk-1.8.0_275
+    >\# Setting for jdk-oracle
+    export JAVA_HOME=/home/null/.jdks/adopt-openjdk-1.8.0_275
     export JRE_HOME=${JAVA_HOME}/jre
     export CLASSPATH=.:${KAVA_HOME}/lib:${JRE_HOME}/lib
     export PATH=${JAVA_HOME}/bin:$PATH
+    \# End
+    启用配置
+    >source /etc/profile
+    测试
+    >java -version
      
   * MySql
     * 下载5.7.xx的数据库
@@ -171,17 +177,17 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     socket = /tmp/mysql.sock
 
     >[mysqld]  
-    character_set_server=utf8
-    init_connect='SET NAMES utf8'
-    basedir=/usr/local/mysql
-    datadir=/usr/local/mysql/data
-    socket=/tmp/mysql.sock
-    log-error=/var/log/mysqld.log
-    pid-file=/var/run/mysqld/mysqld.pid
+    character_set_server=utf8   
+    init_connect='SET NAMES utf8'   
+    basedir=/usr/local/mysql    
+    datadir=/usr/local/mysql/data   
+    socket=/tmp/mysql.sock   
+    log-error=/var/log/mysqld.log   
+    pid-file=/var/run/mysqld/mysqld.pid   
 
     >\#不区分大小写
-    lower_case_table_names = 1
-    sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+    lower_case_table_names = 1    
+    sql_mode=STRICT_TRANS_TABLES,       NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
     max_connections=5000
     default-time_zone = '+8:00'
 
@@ -193,9 +199,9 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
       touch mysqld.log
       chmod 777 mysqld.log
     * 切换到/var/run/创建mysqld 并创建mysqld.pid并设置读写权限
-    > sudo mkdir /var/run/mysqld 
-      touch mysqld.pid 
-      chmod 777 mysqld.pid  
+    > sudo mkdir /var/run/mysqld   
+      touch mysqld.pid      
+      chmod 777 mysqld.pid      
     * 切换到mysql目录下并初始化数据库
     > cd /usr/local/mysql
       sudo bin/mysqld --initialize --user=mysql 
