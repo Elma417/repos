@@ -1,4 +1,4 @@
 #include<iostream>
 int main(){
-    printf("SB\n");
+    printf("R\n");
 }
