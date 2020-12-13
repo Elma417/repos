@@ -1,17 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../MarkDown"
-		},
-		{
-			"path": "../C"
-		},
-		{
-			"path": "../Python"
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }

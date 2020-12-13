@@ -132,14 +132,17 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
   * Java8 
   采用adopt-openjdk-1.8.0_275 IDEA内下载
     * 配置环境路径
-    > kate /etc/profile       
+    > kate /etc/profile    
+
     最后加上以下行
-    >\# Setting for jdk-oracle
+    ```
+    # Setting for jdk-oracle
     export JAVA_HOME=/home/null/.jdks/adopt-openjdk-1.8.0_275
     export JRE_HOME=${JAVA_HOME}/jre
     export CLASSPATH=.:${KAVA_HOME}/lib:${JRE_HOME}/lib
     export PATH=${JAVA_HOME}/bin:$PATH
-    \# End
+    # End
+    ```
     启用配置
     >source /etc/profile
     测试
@@ -166,17 +169,18 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     > kate /etc/my.cnf
     > sudo chomd 644 my.cnf
     * 添加文件内容  
-    > [client]
+    ``` 
+    [client]
     default-character-set=utf8
     port = 3306
     socket = /tmp/mysql.sock
 
-    >[mysql]
+    [mysql]
     default-character-set=utf8
     port = 3306
     socket = /tmp/mysql.sock
 
-    >[mysqld]  
+    [mysqld]  
     character_set_server=utf8   
     init_connect='SET NAMES utf8'   
     basedir=/usr/local/mysql    
@@ -191,9 +195,9 @@ https://wiki.archlinux.org/index.php/fan_speed_control#NBFC
     max_connections=5000
     default-time_zone = '+8:00'
 
-    >\#开启查询缓存
+    \#开启查询缓存
     explicit_defaults_for_timestamp=true
-    
+    ```
     * 切换到/var/log/创建日志文件mysqld.log并设置读写权限
     > cd /var/log
       touch mysqld.log
